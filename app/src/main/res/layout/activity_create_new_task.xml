@@ -34,12 +34,9 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerInParent="true"
                 android:clickable="true"
-                android:contentDescription="@string/todo"
                 android:background="@drawable/back_btn"
                 android:onClick="goBackToHome"/>
-
         </RelativeLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
