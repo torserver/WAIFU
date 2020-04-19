@@ -19,6 +19,7 @@ class MainViewModel : ViewModel()
         listenToTasks()
     }
 
+
     /**
      * This will hear any updates from firestore
      */
