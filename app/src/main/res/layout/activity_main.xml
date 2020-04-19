@@ -34,7 +34,6 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerInParent="true"
                 android:clickable="true"
-                android:contentDescription="@string/todo"
                 android:src="@drawable/menu_btn" />
 
             <ImageView
@@ -44,9 +43,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
                 android:clickable="true"
-                android:contentDescription="@string/todo"
                 android:src="@drawable/more_btn" />
-
         </RelativeLayout>
 
         <RelativeLayout
@@ -76,7 +73,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="490dp">
+            android:layout_height="490dp"
+            android:scrollbars="vertical">
         </androidx.recyclerview.widget.RecyclerView>
 
         <RelativeLayout
@@ -98,10 +96,7 @@
                 android:contentDescription="create new task"
                 android:onClick="goToCreateNewTask"
                 android:textColor="#7EEFCC" />
-
         </RelativeLayout>
-
-
     </LinearLayout>
 </RelativeLayout>
 
