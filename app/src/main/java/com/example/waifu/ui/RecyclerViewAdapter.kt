@@ -20,7 +20,7 @@ class RecyclerViewAdapter(private val recyclerViewRowItems: ArrayList<Task>) : R
         override fun onBindViewHolder(holder: RecyclerViewViewHolder, position: Int) {
             holder.lblTaskName.text = recyclerViewRowItems[position].getTaskName()
             holder.lblTaskDescription.text = recyclerViewRowItems[position].getTaskDescription()
-            holder.lblTaskDescription.text = recyclerViewRowItems[position].getTaskPriorityLevelMessage()
+            holder.lblPriorityLevel.text = recyclerViewRowItems[position].getTaskPriorityLevelMessage()
         }
 
         override fun getItemCount(): Int {

@@ -16,9 +16,12 @@ class MainActivity : AppCompatActivity()
     private lateinit var viewModel: MainViewModel
     private var recyclerView: RecyclerView? = null
     private var recyclerViewAdapter: RecyclerView.Adapter<*>? = null
+
+    //where tasks that will appear on cards in the recyclerview are stored for now
+    //TODO hook this up to firebase
     var recyclerViewRowItems: ArrayList <Task> = arrayListOf (
-        Task("Test", "Test Description", 1),
-        Task("Test2", "Test2 Description", 2),
+        Task("Test", "Test Description", 2),
+        Task("Test2", "Test2 Description", 1),
         Task("Test3", "Test3 Description", 3)
     )
 
@@ -38,9 +41,7 @@ class MainActivity : AppCompatActivity()
         recyclerView!!.layoutManager = layoutManager
         recyclerViewAdapter = RecyclerViewAdapter(recyclerViewRowItems)
         recyclerView!!.adapter = recyclerViewAdapter
-        populateRecyclerView()
-
-
+        updateRecyclerView()
     }
 
     fun goToCreateNewTask(view: View)
@@ -49,7 +50,7 @@ class MainActivity : AppCompatActivity()
         startActivity(intent)
     }
 
-    fun populateRecyclerView()
+    fun updateRecyclerView() //updates the items that appear on cards in the recycler view
     {
         for (i in 0..recyclerViewRowItems.lastIndex)
         {
@@ -58,6 +59,7 @@ class MainActivity : AppCompatActivity()
             task.taskDescription = task.setTaskDescription(recyclerViewRowItems[i].getTaskDescription())
             task.taskPriorityLevel = task.setTaskPriorityLevel(recyclerViewRowItems[i].getTaskPriorityLevel())
         }
+        recyclerViewRowItems.sortBy { it.taskPriorityLevel} //sorts all tasks in the recyclerview by priority level
     }
 
 }
