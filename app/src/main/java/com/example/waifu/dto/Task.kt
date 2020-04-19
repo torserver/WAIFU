@@ -38,7 +38,7 @@ data class Task (var taskName: String = "", var taskDescription: String = "", va
         {
             taskPriorityLevelMessage = "Medium"
         }
-        else if(taskPriorityLevel == PriorityLevel.HIGH.priorityLevelNumber)
+        else if(taskPriorityLevel == PriorityLevel.LOW.priorityLevelNumber)
         {
             taskPriorityLevelMessage = "Low"
         }
