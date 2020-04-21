@@ -11,6 +11,7 @@ import com.example.waifu.PriorityLevel
 import com.example.waifu.dto.Task
 import kotlinx.android.synthetic.main.activity_create_new_task.*
 import kotlinx.android.synthetic.main.activity_create_new_task.view.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 class CreateNewTaskActivity : AppCompatActivity()
 {
@@ -26,12 +27,11 @@ class CreateNewTaskActivity : AppCompatActivity()
         btnSave.setOnClickListener {
             saveTask()
         }
-
-
-
     }
 
-    fun goBackToHome(view: View) {
+    //goes back to the task list page
+    fun goBackToMain()
+    {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
@@ -60,5 +60,6 @@ class CreateNewTaskActivity : AppCompatActivity()
     {
         var task = Task(etTaskName.text.toString(), etTaskDescription.text.toString(), determinePriorityLevel(), taskId.toString())
         viewModel.save(task)
+        goBackToMain()
     }
 }
