@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.waifu.R
 import com.example.waifu.dto.Task
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity()
 {
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity()
 
     //where tasks that will appear on cards in the recyclerview are stored for now
     //TODO hook this up to firebase
-    var recyclerViewRowItems: ArrayList <Task> = arrayListOf (
+    public var recyclerViewRowItems: ArrayList <Task> = arrayListOf (
         Task("Test", "Test Description", 2),
         Task("Test2", "Test2 Description", 1),
         Task("Test3", "Test3 Description", 3)
@@ -39,6 +40,11 @@ class MainActivity : AppCompatActivity()
             //tasks -> tskTasks.setAdapter(ArrayAdapter(context!!, R.layout.support_simple_spinner_dropdown_item, tasks))
         })
 
+        btnNewTask.setOnClickListener()
+        {
+            goToCreateNewTask()
+        }
+        
         recyclerView = findViewById(R.id.recyclerView)
         var layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
@@ -54,7 +60,6 @@ class MainActivity : AppCompatActivity()
 
             override fun onLongClick(view: View?, position: Int)
             {
-
             }
 
         }))

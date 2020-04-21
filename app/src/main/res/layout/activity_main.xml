@@ -82,10 +82,10 @@
             android:layout_height="65dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:onClick="newScreen">
+>
 
             <Button
-                android:id="@+id/newTask_btn"
+                android:id="@+id/btnNewTask"
                 android:layout_width="65dp"
                 android:layout_height="65dp"
                 android:layout_alignParentRight="true"
@@ -93,8 +93,6 @@
                 android:layout_centerInParent="true"
                 android:background="@drawable/add_btn_correct"
                 android:clickable="true"
-                android:contentDescription="create new task"
-                android:onClick="goToCreateNewTask"
                 android:textColor="#7EEFCC" />
         </RelativeLayout>
     </LinearLayout>
