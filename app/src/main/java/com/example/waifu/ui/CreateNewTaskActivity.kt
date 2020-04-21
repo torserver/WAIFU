@@ -24,6 +24,11 @@ class CreateNewTaskActivity : AppCompatActivity()
 
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
+        btnBack.setOnClickListener()
+        {
+            goBackToMain()
+        }
+
         btnSave.setOnClickListener {
             saveTask()
         }
