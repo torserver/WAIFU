@@ -1,9 +1,13 @@
 package com.example.waifu.ui
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.GestureDetector
+import android.view.MotionEvent
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -41,12 +45,33 @@ class MainActivity : AppCompatActivity()
         recyclerView!!.layoutManager = layoutManager
         recyclerViewAdapter = RecyclerViewAdapter(recyclerViewRowItems)
         recyclerView!!.adapter = recyclerViewAdapter
+        recyclerView!!.addOnItemTouchListener(RecyclerTouchListener(applicationContext, recyclerView!!, object : ClickListener
+        {
+            override fun onClick(view: View, position: Int)
+            {
+                goToEditTask()
+            }
+
+            override fun onLongClick(view: View?, position: Int)
+            {
+
+            }
+
+        }))
         updateRecyclerView()
     }
 
-    fun goToCreateNewTask(view: View)
+    //takes you to the create task screen
+    fun goToCreateNewTask()
     {
         val intent = Intent(this, CreateNewTaskActivity::class.java)
+        startActivity(intent)
+    }
+
+    //takes you to the edit task screen
+    fun goToEditTask()
+    {
+        val intent = Intent(this, EditTaskActivity::class.java)
         startActivity(intent)
     }
 
@@ -60,6 +85,49 @@ class MainActivity : AppCompatActivity()
             task.taskPriorityLevel = task.setTaskPriorityLevel(recyclerViewRowItems[i].getTaskPriorityLevel())
         }
         recyclerViewRowItems.sortBy { it.taskPriorityLevel} //sorts all tasks in the recyclerview by priority level
+    }
+
+    interface ClickListener {
+        fun onClick(view: View, position: Int)
+
+        fun onLongClick(view: View?, position: Int)
+    }
+
+    internal class RecyclerTouchListener(context: Context, recyclerView: RecyclerView, private val clickListener: ClickListener?) : RecyclerView.OnItemTouchListener {
+
+        private val gestureDetector: GestureDetector
+
+        init {
+            gestureDetector = GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
+                override fun onSingleTapUp(e: MotionEvent): Boolean
+                {
+                    return true
+                }
+
+                override fun onLongPress(e: MotionEvent)
+                {
+                    val childView = recyclerView.findChildViewUnder(e.x, e.y)
+                    if (childView != null && clickListener != null)
+                    {
+                        clickListener.onLongClick(childView, recyclerView.getChildAdapterPosition(childView))
+                    }
+                }
+            })
+        }
+
+        override fun onInterceptTouchEvent(recyclerView: RecyclerView, e: MotionEvent): Boolean
+        {
+            val childView = recyclerView.findChildViewUnder(e.x, e.y)
+            if (childView != null && clickListener != null && gestureDetector.onTouchEvent(e))
+            {
+                clickListener.onClick(childView, recyclerView.getChildAdapterPosition(childView))
+            }
+            return false
+        }
+
+        override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) {}
+
+        override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {}
     }
 
 }
