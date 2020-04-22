@@ -1,10 +1,8 @@
 package com.example.waifu.ui
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
-import android.widget.Button
 import android.widget.RadioGroup
 import com.example.waifu.PriorityLevel
 import com.example.waifu.R
@@ -20,34 +18,21 @@ class EditTaskActivity : AppCompatActivity() {
     var taskDescription: String ?= null
     var taskPriorityLevel: String ?= null
 
-    var rgPriority = findViewById<RadioGroup>(R.id.rgPriority)
-    var btnBack = findViewById<Button>(R.id.btnBack)
-
-    override fun onCreate(savedInstanceState: Bundle?)
-    {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_task)
-        getTaskData()
-
-        btnBack.setOnClickListener()
-        {
-            goBackToMain()
-        }
-
-    }
-    fun getTaskData() //populates the edit task screen with the existing values
-    {
+        var rgPriority = findViewById<RadioGroup>(R.id.rgPriority)
         val bundle: Bundle? = intent.extras
         if (bundle != null) {
             taskName = bundle!!.getString("taskName")
             taskDescription = bundle!!.getString("taskDescription")
-            taskPriorityLevel = bundle.getString("taskPriorityLevel")
+            taskPriorityLevel = bundle!!.getString("taskPriorityLevel")
         }
         else
         {
             taskName = "Task Name"
             taskDescription = "Task Description"
-            taskPriorityLevel = "High"
+            taskPriorityLevel = "Low"
         }
         if (taskPriorityLevel.equals("High"))
         {
@@ -64,12 +49,5 @@ class EditTaskActivity : AppCompatActivity() {
 
         etTaskName.setText(taskName)
         etTaskDescription.setText(taskDescription)
-    }
-
-    //goes back to the task list page
-    fun goBackToMain()
-    {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
     }
 }
