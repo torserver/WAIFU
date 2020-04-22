@@ -42,11 +42,6 @@ class MainActivity : AppCompatActivity()
             //tasks -> tskTasks.setAdapter(ArrayAdapter(context!!, R.layout.support_simple_spinner_dropdown_item, tasks))
         })
 
-        btnNewTask.setOnClickListener()
-        {
-            goToCreateNewTask()
-        }
-
         recyclerView = findViewById(R.id.recyclerView)
         var layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
@@ -66,6 +61,11 @@ class MainActivity : AppCompatActivity()
 
         }))
         updateRecyclerView()
+
+        btnNewTask.setOnClickListener()
+        {
+            goToCreateNewTask()
+        }
     }
 
     //takes you to the create task screen
