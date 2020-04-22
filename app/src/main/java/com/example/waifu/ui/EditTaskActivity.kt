@@ -3,16 +3,10 @@ package com.example.waifu.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
 import android.widget.Button
 import android.widget.RadioGroup
-import com.example.waifu.PriorityLevel
 import com.example.waifu.R
-import kotlinx.android.synthetic.main.activity_create_new_task.*
 import kotlinx.android.synthetic.main.activity_edit_task.*
-import kotlinx.android.synthetic.main.activity_edit_task.etTaskDescription
-import kotlinx.android.synthetic.main.activity_edit_task.etTaskName
-import kotlinx.android.synthetic.main.row_layout.*
 
 class EditTaskActivity : AppCompatActivity() {
 
@@ -52,8 +46,12 @@ class EditTaskActivity : AppCompatActivity() {
 
         etTaskName.setText(taskName)
         etTaskDescription.setText(taskDescription)
+
+        btnSave.setOnClickListener()
+        {
+            goBackToMain()
+        }
     }
-    
     //goes back to the task list page
     fun goBackToMain()
     {

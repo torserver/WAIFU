@@ -3,15 +3,16 @@ package com.example.waifu.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.RadioGroup
 import androidx.lifecycle.ViewModelProviders
 import com.example.waifu.R
 import com.example.waifu.PriorityLevel
 import com.example.waifu.dto.Task
-import kotlinx.android.synthetic.main.activity_create_new_task.*
+import kotlinx.android.synthetic.main.activity_create_new_task.btnSave
+import kotlinx.android.synthetic.main.activity_create_new_task.etTaskDescription
+import kotlinx.android.synthetic.main.activity_create_new_task.etTaskName
 import kotlinx.android.synthetic.main.activity_create_new_task.view.*
-import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlinx.android.synthetic.main.activity_edit_task.*
 
 class CreateNewTaskActivity : AppCompatActivity()
 {
@@ -29,8 +30,10 @@ class CreateNewTaskActivity : AppCompatActivity()
             goBackToMain()
         }
 
-        btnSave.setOnClickListener {
+        btnSave.setOnClickListener()
+        {
             saveTask()
+            goBackToMain()
         }
     }
 
@@ -65,6 +68,5 @@ class CreateNewTaskActivity : AppCompatActivity()
     {
         var task = Task(etTaskName.text.toString(), etTaskDescription.text.toString(), determinePriorityLevel(), taskId.toString())
         viewModel.save(task)
-        goBackToMain()
     }
 }
