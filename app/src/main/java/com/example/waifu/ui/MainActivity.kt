@@ -42,11 +42,6 @@ class MainActivity : AppCompatActivity()
             //tasks -> tskTasks.setAdapter(ArrayAdapter(context!!, R.layout.support_simple_spinner_dropdown_item, tasks))
         })
 
-        btnNewTask.setOnClickListener()
-        {
-            goToCreateNewTask()
-        }
-
         recyclerView = findViewById(R.id.recyclerView)
         var layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
@@ -57,7 +52,7 @@ class MainActivity : AppCompatActivity()
         {
             override fun onClick(view: View, position: Int)
             {
-                goToEditTask()
+                goToEditTask(view, position)
             }
 
             override fun onLongClick(view: View?, position: Int)
@@ -66,6 +61,11 @@ class MainActivity : AppCompatActivity()
 
         }))
         updateRecyclerView()
+
+        btnNewTask.setOnClickListener()
+        {
+            goToCreateNewTask()
+        }
     }
 
     //takes you to the create task screen
@@ -76,15 +76,13 @@ class MainActivity : AppCompatActivity()
     }
 
     //takes you to the edit task screen
-    fun goToEditTask()
+    fun goToEditTask(view: View, position: Int)
     {
-        val taskName: String = lblTaskName.text.toString()
-        val taskDescription: String = lblTaskDescription.text.toString()
-        val taskPriorityLevel: String = lblTaskPriorityLevel.text.toString()
+        val task: Task = recyclerViewRowItems.get(position) //gets the task object (card clicked on) from the recycler view) and sends the data to the edit task page if the card is clicked on
         val intent = Intent(this, EditTaskActivity::class.java)
-        intent.putExtra("taskName", taskName)
-        intent.putExtra("taskDescription", taskDescription)
-        intent.putExtra("taskPriorityLevel", taskPriorityLevel)
+        intent.putExtra("taskName", task.getTaskName())
+        intent.putExtra("taskDescription", task.getTaskDescription())
+        intent.putExtra("taskPriorityLevel", task.getTaskPriorityLevel())
         startActivity(intent)
     }
 
@@ -100,7 +98,8 @@ class MainActivity : AppCompatActivity()
         recyclerViewRowItems.sortBy { it.taskPriorityLevel} //sorts all tasks in the recyclerview by priority level
     }
 
-    interface ClickListener {
+    interface ClickListener
+    {
         fun onClick(view: View, position: Int)
 
         fun onLongClick(view: View?, position: Int)
