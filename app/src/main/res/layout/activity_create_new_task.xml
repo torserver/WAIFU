@@ -48,7 +48,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="10dp"
                 android:textColor="#000000"
-                android:text="Create Something Meaningful!"
+                android:hint="Create Something Meaningful!"
                 android:textSize="25dp"
                 android:textAlignment="center"
                 android:gravity="center_horizontal" />
@@ -69,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:text="New Task..."
+                android:hint="New Task..."
                 android:textColor="#FFFFFF"
                 android:textSize="25dp" />
 
