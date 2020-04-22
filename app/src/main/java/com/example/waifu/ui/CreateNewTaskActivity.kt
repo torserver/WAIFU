@@ -106,7 +106,7 @@ class CreateNewTaskActivity : AppCompatActivity()
                 errorMessage = "Please put the description of your task."
             }
             var toast: Toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT)
-            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0)
+            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 20)
             toast.show()
             return false
         }
