@@ -1,8 +1,10 @@
 package com.example.waifu.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.widget.Button
 import android.widget.RadioGroup
 import com.example.waifu.PriorityLevel
 import com.example.waifu.R
@@ -22,6 +24,7 @@ class EditTaskActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_task)
         var rgPriority = findViewById<RadioGroup>(R.id.rgPriority)
+        var btnBack = findViewById<Button>(R.id.btnBack)
         val bundle: Bundle? = intent.extras
         if (bundle != null) {
             taskName = bundle!!.getString("taskName")
@@ -32,7 +35,7 @@ class EditTaskActivity : AppCompatActivity() {
         {
             taskName = "Task Name"
             taskDescription = "Task Description"
-            taskPriorityLevel = "Low"
+            taskPriorityLevel = "High"
         }
         if (taskPriorityLevel.equals("High"))
         {
@@ -49,5 +52,12 @@ class EditTaskActivity : AppCompatActivity() {
 
         etTaskName.setText(taskName)
         etTaskDescription.setText(taskDescription)
+    }
+    
+    //goes back to the task list page
+    fun goBackToMain()
+    {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 }
