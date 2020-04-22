@@ -3,6 +3,7 @@ package com.example.waifu.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.RadioGroup
 import androidx.lifecycle.ViewModelProviders
 import com.example.waifu.R
@@ -23,6 +24,7 @@ class CreateNewTaskActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_new_task)
 
+        val btnBack = findViewById<Button>(R.id.btnBack)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
         btnBack.setOnClickListener()
