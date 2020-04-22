@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.waifu.R
 import com.example.waifu.dto.Task
+import kotlinx.android.synthetic.main.activity_create_new_task.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.row_layout.*
 
 class MainActivity : AppCompatActivity()
 {
@@ -44,7 +46,7 @@ class MainActivity : AppCompatActivity()
         {
             goToCreateNewTask()
         }
-        
+
         recyclerView = findViewById(R.id.recyclerView)
         var layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
@@ -76,7 +78,13 @@ class MainActivity : AppCompatActivity()
     //takes you to the edit task screen
     fun goToEditTask()
     {
+        val taskName: String = lblTaskName.text.toString()
+        val taskDescription: String = lblTaskDescription.text.toString()
+        val taskPriorityLevel: String = lblTaskPriorityLevel.text.toString()
         val intent = Intent(this, EditTaskActivity::class.java)
+        intent.putExtra("taskName", taskName)
+        intent.putExtra("taskName", taskDescription)
+        intent.putExtra("taskPriorityLevel", taskPriorityLevel)
         startActivity(intent)
     }
 
