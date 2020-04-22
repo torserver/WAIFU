@@ -3,6 +3,8 @@ package com.example.waifu.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.Gravity
 import android.widget.*
 import androidx.lifecycle.ViewModelProviders
 import com.example.waifu.R
@@ -28,13 +30,8 @@ class CreateNewTaskActivity : AppCompatActivity()
 
         val btnBack = findViewById<Button>(R.id.btnBack)
         val btnSave = findViewById<Button>(R.id.btnSave)
-        val etTaskName = findViewById<EditText>(R.id.etTaskName)
-        val etTaskDescription = findViewById<EditText>(R.id.etTaskDescription)
 
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-
-        taskName = etTaskName.text.toString()
-        taskDescription = etTaskDescription.text.toString()
 
         btnBack.setOnClickListener()
         {
@@ -87,27 +84,30 @@ class CreateNewTaskActivity : AppCompatActivity()
     private fun validInputs(): Boolean
     {
         var errorMessage = ""
+        taskName = etTaskName.text.toString()
+        taskDescription = etTaskDescription.text.toString()
 
-        if((taskName != null && taskDescription != null) || (!(taskName.equals("")) && !(taskDescription.equals(""))))
+        if((!(taskName.isNullOrEmpty()) && !(taskDescription.isNullOrEmpty())))
         {
             return true
         }
         else
         {
-            if((taskName == null && taskDescription == null) || (taskName.equals("") && taskDescription.equals("")))
+            if(taskName.isNullOrEmpty() && taskDescription.isNullOrEmpty())
             {
                 errorMessage = "Please put the name and description of your task."
             }
-            else if(taskName == null || taskName.equals(""))
+            else if(taskName.isNullOrEmpty())
             {
                 errorMessage = "Please put the name of your task."
             }
-            else if (taskDescription == null || taskDescription.equals(""))
+            else if (taskDescription.isNullOrEmpty())
             {
                 errorMessage = "Please put the description of your task."
             }
-
-            Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_SHORT)
+            var toast: Toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT)
+            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0)
+            toast.show()
             return false
         }
     }
