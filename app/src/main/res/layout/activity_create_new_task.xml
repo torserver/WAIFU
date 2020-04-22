@@ -48,7 +48,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="10dp"
                 android:textColor="#000000"
-                android:hint="Create Something Meaningful!"
+                android:text="Create Something Meaningful!"
                 android:textSize="25dp"
                 android:textAlignment="center"
                 android:gravity="center_horizontal" />
@@ -71,6 +71,7 @@
                 android:layout_alignParentLeft="true"
                 android:hint="New Task..."
                 android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
                 android:textSize="25dp" />
 
         </RelativeLayout>
@@ -87,7 +88,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:text="Task Description..."
+                android:hint="Task Description..."
+                android:textColorHint="#FFFFFF"
                 android:textColor="#FFFFFF"
                 android:textSize="25dp" />
 
@@ -115,14 +117,17 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="High"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:checked="true"
+                    android:buttonTint="#FF0000"/>
                 <RadioButton
                     android:id="@+id/rdoMediumPriority"
                     android:layout_width="110dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="Medium"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    android:buttonTint="#FFFF00"/>
                 <RadioButton
                     android:id="@+id/rdoLowPriority"
                     android:layout_width="85dp"
@@ -130,7 +135,8 @@
                     android:layout_height="wrap_content"
                     android:text="Low"
                     android:textSize="20dp"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:buttonTint="#32CD32"/>
             </RadioGroup>
 
         </RelativeLayout>
