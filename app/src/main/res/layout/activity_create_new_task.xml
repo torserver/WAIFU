@@ -37,11 +37,31 @@
                 android:clickable="true"
                 android:background="@drawable/back_btn"/>
         </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="#000000"
+                android:text="Create Something Meaningful!"
+                android:textSize="25dp"
+                android:textAlignment="center"
+                android:gravity="center_horizontal" />
+
+
+        </RelativeLayout>
+
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="100dp"
             android:layout_marginRight="20dp">
 
             <EditText
@@ -49,9 +69,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:text="New Task"
-                android:textColor="#000000"
-                android:textSize="15sp" />
+                android:text="New Task..."
+                android:textColor="#FFFFFF"
+                android:textSize="25dp" />
 
         </RelativeLayout>
 
@@ -59,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="20dp">
 
             <EditText
@@ -67,9 +87,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:text="Task Description"
-                android:textColor="#000000"
-                android:textSize="15sp" />
+                android:text="Task Description..."
+                android:textColor="#FFFFFF"
+                android:textSize="25dp" />
 
         </RelativeLayout>
 
@@ -77,39 +97,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="1dp"
             android:layout_marginRight="20dp"
-            android:layout_gravity="center"
-            android:paddingTop="1dp">
+            android:paddingTop="130dp">
 
             <RadioGroup
                 android:id="@+id/rgPriority"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_centerHorizontal="true"
                 android:gravity="center"
-                android:background="#F2DD2D59"
+                android:background="@color/colorAccent"
                 android:paddingTop="1dp">
                 <RadioButton
                     android:id="@+id/rdoHighPriority"
-                    android:layout_width="match_parent"
+                    android:layout_width="85dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="High" />
+                    android:text="High"
+                    android:textSize="20dp" />
                 <RadioButton
                     android:id="@+id/rdoMediumPriority"
-                    android:layout_width="match_parent"
+                    android:layout_width="110dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Medium" />
+                    android:text="Medium"
+                    android:textSize="20dp"/>
                 <RadioButton
                     android:id="@+id/rdoLowPriority"
-                    android:layout_width="match_parent"
+                    android:layout_width="85dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="Low"
-                    android:textColor="#000000"
-                    />
+                    android:textSize="20dp"
+                    android:textColor="#000000" />
             </RadioGroup>
 
         </RelativeLayout>
@@ -117,15 +138,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="1dp"
-            android:gravity="center">
+            android:layout_marginTop="95dp"
+            android:layout_marginRight="20dp"
+            android:gravity="right">
             <Button
                 android:id="@+id/btnSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Save"
-                android:background="#F2DD2D59"
-                >
+                android:background="@color/colorAccent"
+                android:elevation="16dp">
             </Button>
         </RelativeLayout>
     </LinearLayout>
