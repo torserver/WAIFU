@@ -103,7 +103,7 @@
             <RadioGroup
                 android:id="@+id/rgPriority"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:orientation="horizontal"
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
