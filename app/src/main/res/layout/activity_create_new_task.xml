@@ -35,8 +35,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerInParent="true"
                 android:clickable="true"
-                android:background="@drawable/back_btn"
-                android:onClick="goBackToHome"/>
+                android:background="@drawable/back_btn" />
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -50,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:text="New Task"
+                android:hint="Task Name"
                 android:textColor="#000000"
                 android:textSize="15sp" />
 
@@ -68,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:text="Task Description"
+                android:hint="Task Description"
                 android:textColor="#000000"
                 android:textSize="15sp" />
 
@@ -96,7 +95,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="High" />
+                    android:text="High"
+                    android:checked="true"/>
                 <RadioButton
                     android:id="@+id/rdoMediumPriority"
                     android:layout_width="match_parent"
