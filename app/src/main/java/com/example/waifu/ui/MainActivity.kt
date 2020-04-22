@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity()
         val taskPriorityLevel: String = lblTaskPriorityLevel.text.toString()
         val intent = Intent(this, EditTaskActivity::class.java)
         intent.putExtra("taskName", taskName)
-        intent.putExtra("taskName", taskDescription)
+        intent.putExtra("taskDescription", taskDescription)
         intent.putExtra("taskPriorityLevel", taskPriorityLevel)
         startActivity(intent)
     }
