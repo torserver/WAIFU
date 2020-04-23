@@ -25,7 +25,6 @@ import com.example.waifu.R
 import com.example.waifu.dto.Task
 import kotlinx.android.synthetic.main.activity_main.*
 
-@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity()
 {
     private lateinit var viewModel: MainViewModel
@@ -88,7 +87,8 @@ class MainActivity : AppCompatActivity()
                 notificationManager.createNotificationChannel(notificationChannel)
 
                 builder = Notification.Builder(this,channelId)
-                    .setContent(contentView)
+                    .setContentText("Don't give up on your daily goals")
+                    .setSubText("display pending tasks")
                     .setSmallIcon(R.drawable.ic_launcher_background)
                     .setLargeIcon(BitmapFactory.decodeResource(this.resources,
                         R.drawable.ic_launcher_background))
