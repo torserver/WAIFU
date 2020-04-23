@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="@string/task"
+                android:text="WAIFU"
                 android:textColor="#000000"
                 android:textSize="27sp" />
 
@@ -53,21 +53,12 @@
             android:layout_marginTop="32dp"
             android:layout_marginRight="20dp">
 
-            <TextView
+            <Button
+                android:id="@+id/btn"
                 android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:text="March 13"
-                android:textColor="#000000"
-                android:textSize="27sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text="2020"
-                android:textColor="#000000"
-                android:textSize="27sp" />
+                android:text="Send Reminder" />
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -94,6 +85,7 @@
                 android:clickable="true"
                 android:textColor="#7EEFCC" />
         </RelativeLayout>
+
     </LinearLayout>
 </RelativeLayout>
 
