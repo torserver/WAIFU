@@ -11,10 +11,12 @@ import kotlinx.android.synthetic.main.activity_edit_task.*
 
 class EditTaskActivity : AppCompatActivity() {
 
+    //task attributes
     var taskName: String? = null
     var taskDescription: String ?= null
     var taskPriorityLevel: Int ?= null
 
+    //populate edittaskactivity with data
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_task)

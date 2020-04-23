@@ -81,6 +81,7 @@ class CreateNewTaskActivity : AppCompatActivity()
         goBackToMain()
     }
 
+    //validate user inputs
     private fun validInputs(): Boolean
     {
         var errorMessage = ""
