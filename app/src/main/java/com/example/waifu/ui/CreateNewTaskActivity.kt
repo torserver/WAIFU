@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_edit_task.*
 class CreateNewTaskActivity : AppCompatActivity()
 {
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: TaskViewModel
     private lateinit var taskName: String
     private lateinit var taskDescription: String
     private var taskPriorityLevel = PriorityLevel.HIGH.priorityLevelNumber
@@ -32,7 +32,7 @@ class CreateNewTaskActivity : AppCompatActivity()
         val btnBack = findViewById<Button>(R.id.btnBack)
         val btnSave = findViewById<Button>(R.id.btnSave)
 
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(TaskViewModel::class.java)
 
         btnBack.setOnClickListener()
         {
@@ -77,7 +77,7 @@ class CreateNewTaskActivity : AppCompatActivity()
     }
     private fun saveTask()
     {
-        var task = Task(etTaskName.text.toString(), etTaskDescription.text.toString(), determinePriorityLevel(), taskId.toString())
+        val task = Task(etTaskName.text.toString(), etTaskDescription.text.toString(), determinePriorityLevel(), taskId.toString())
         viewModel.save(task)
         goBackToMain()
     }

@@ -15,6 +15,7 @@ class TaskViewModel : ViewModel
     var taskName = ""
     var taskDescription = ""
     var taskPriorityLevel = PriorityLevel.HIGH.priorityLevelNumber
+    var taskPriorityLevelString = ""
     var taskId = ""
 
     private var firestore: FirebaseFirestore
@@ -35,6 +36,7 @@ class TaskViewModel : ViewModel
         this.taskDescription = task.taskDescription
         this.taskPriorityLevel = task.taskPriorityLevel
         this.taskId = task.taskId
+        this.taskPriorityLevelString = task.getTaskPriorityLevelMessage()
     }
 
     var _recyclerViewLiveData = MutableLiveData<ArrayList<TaskViewModel>>()
@@ -64,10 +66,11 @@ class TaskViewModel : ViewModel
                     val documents = snapshot.documents
                     documents.forEach()
                     {
-                        val task:TaskViewModel? = it.toObject(TaskViewModel::class.java) //convert it to Task object
+                        val task = it.toObject(Task::class.java) //convert it to Task object
                         if (task != null)
                         {
-                            recyclerViewData.add(task!!) //if task is not null, add it to the task list.
+                            var taskViewModel = task.convertToTaskViewModelObject()
+                            recyclerViewData.add(taskViewModel!!) //if task is not null, add it to the task list.
                         }
                     }
                     _recyclerViewLiveData.value = recyclerViewData
@@ -75,28 +78,6 @@ class TaskViewModel : ViewModel
             }
         }
     }
-    fun getTaskPriorityLevelMessage(): String
-    {
-        var taskPriorityLevelMessage = ""
-        if(taskPriorityLevel == PriorityLevel.HIGH.priorityLevelNumber)
-        {
-            taskPriorityLevelMessage = "High"
-        }
-        else if(taskPriorityLevel == PriorityLevel.MEDIUM.priorityLevelNumber)
-        {
-            taskPriorityLevelMessage = "Medium"
-        }
-        else if(taskPriorityLevel == PriorityLevel.LOW.priorityLevelNumber)
-        {
-            taskPriorityLevelMessage = "Low"
-        }
-        else
-        {
-            taskPriorityLevelMessage = "Priority Level Not Set"
-        }
-        return taskPriorityLevelMessage
-    }
-
 
     //fun save(task: Task) : TaskViewModel
     fun save(task: Task)

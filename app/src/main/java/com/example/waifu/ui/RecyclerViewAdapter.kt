@@ -50,7 +50,6 @@ class RecyclerViewAdapter(private val context:Context, private val recyclerViewR
         fun bind(taskViewModel: TaskViewModel)
         {
             this.taskBinding.taskmodel = taskViewModel
-            taskBinding.lblTaskPriorityLevel.text = taskViewModel.getTaskPriorityLevelMessage()
             taskBinding.executePendingBindings()
         }
 
