@@ -55,7 +55,7 @@ class CreateNewTaskActivity : AppCompatActivity()
         startActivity(intent)
     }
 
-    private fun determinePriorityLevel(): Int
+    fun determinePriorityLevel(): Int
     {
         val radioGroupPriority = findViewById<RadioGroup>(R.id.rgPriority)
         if(radioGroupPriority.rdoLowPriority.isChecked)
@@ -82,6 +82,7 @@ class CreateNewTaskActivity : AppCompatActivity()
         goBackToMain()
     }
 
+    //validate user inputs
     private fun validInputs(): Boolean
     {
         var errorMessage = ""
