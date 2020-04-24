@@ -35,6 +35,7 @@ class MainViewModel : ViewModel()
                 return@addSnapshotListener
             }
             //if there is no exception
+            else
             {
                 if(snapshot != null)
                 {

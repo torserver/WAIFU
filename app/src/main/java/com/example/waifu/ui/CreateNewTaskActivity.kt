@@ -23,6 +23,7 @@ class CreateNewTaskActivity : AppCompatActivity()
     private lateinit var taskName: String
     private lateinit var taskDescription: String
     private var taskPriorityLevel = PriorityLevel.HIGH.priorityLevelNumber
+    private var task = Task()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -109,6 +110,15 @@ class CreateNewTaskActivity : AppCompatActivity()
             toast.setGravity(Gravity.CENTER_VERTICAL, 0, 20)
             toast.show()
             return false
+        }
+    }
+
+    internal fun storeTask()
+    {
+        task.apply{
+            task.taskName = taskName
+            task.taskDescription = taskDescription
+            task.taskPriorityLevel = taskPriorityLevel
         }
     }
 }
